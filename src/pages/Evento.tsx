@@ -140,13 +140,13 @@ const Evento = () => {
         {/* Main Content */}
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
           {/* Left Column */}
-          <div className="space-y-4 md:space-y-6 order-2 lg:order-1 text-center mx-auto w-full">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2 mx-auto">
+          <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-6 order-2 lg:order-1 w-full">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2 text-center lg:text-left">
               MAIS QUE LUCRO: <span className="text-orange-400">TRANSFORME SUA OPERAÇÃO</span><br />
               <span className="text-orange-400">EM CAIXA REAL COM SEGURANÇA FINANCEIRA</span>
             </h1>
             
-            <h2 className="text-lg md:text-xl text-gray-300 leading-relaxed px-2 mx-auto max-w-3xl">
+            <h2 className="text-lg md:text-xl text-gray-300 leading-relaxed px-2 text-center lg:text-left max-w-3xl">
               O Jogo Que os Grandes NEGÓCIOS Jogam Para Sempre Ter Caixa — E Que Nunca Ensinaram Para Pequenos Empresários
             </h2>
 
@@ -156,7 +156,7 @@ const Evento = () => {
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-3 text-base md:text-lg font-bold rounded-lg leading-tight w-[90%] mx-auto md:w-auto md:px-[18px] md:py-[32px]">
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-sm sm:text-base md:text-lg font-bold rounded-lg leading-normal w-full max-w-xs sm:max-w-sm px-3 sm:px-4 md:w-auto md:px-[18px] md:py-[32px]">
                   <span className="text-center">
                     SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
                   </span>
@@ -306,7 +306,7 @@ const Evento = () => {
           
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 text-lg font-bold leading-tight w-[90%] md:w-auto mx-auto md:mx-0 md:text-xl rounded-lg md:px-[24px] md:py-[36px]">
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-base sm:text-lg md:text-xl font-bold rounded-lg leading-normal w-full max-w-sm sm:max-w-md px-4 sm:px-6 md:w-auto md:mx-0 md:px-[24px] md:py-[36px]">
                 <span className="text-center">
                   SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
                 </span>
