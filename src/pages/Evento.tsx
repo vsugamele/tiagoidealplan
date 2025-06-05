@@ -15,7 +15,8 @@ declare global {
 }
 
 const Evento = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenTop, setIsOpenTop] = useState(false);
+  const [isOpenBottom, setIsOpenBottom] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -110,13 +111,8 @@ const Evento = () => {
   };
   const avatarImages = ["/lovable-uploads/79dc3450-ace8-4248-9bc7-a981c19057c2.png", "/lovable-uploads/91dc1428-8f3a-4184-a948-4b91ef576353.png", "/lovable-uploads/edff71bb-0ff5-4952-bd06-b746b8928791.png", "/lovable-uploads/a13ed4a5-b671-4f86-930f-22b879ac2ab7.png", "/lovable-uploads/7490d21a-7fd3-43d7-944c-170ab8555d0b.png", "/lovable-uploads/d7ccdb0c-77ed-4f6d-ad6f-7dfb521e8d3c.png"];
 
-  return <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
-      <noscript>
-        <img height="1" width="1" style={{
-        display: 'none'
-      }} src="https://www.facebook.com/tr?id=1073091231347696&ev=PageView&noscript=1" />
-      </noscript>
-
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500 rounded-full filter blur-3xl"></div>
@@ -130,104 +126,107 @@ const Evento = () => {
             <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
               <span className="text-sm font-bold">€</span>
             </div>
-            <span className="text-lg font-bold">RECEITA GERENCIAL</span>
+            <span className="text-lg font-bold">IDEAL PLAN</span>
           </div>
           <div className="text-orange-400 font-semibold text-center text-sm md:text-base">
             🔴 WEBINAR AO VIVO: 23 DE JUNHO ÀS 20H
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
-          {/* Left Column */}
-          <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-6 order-2 lg:order-1 w-full">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2 text-center lg:text-left">
-              MAIS QUE LUCRO: <span className="text-orange-400">TRANSFORME SUA OPERAÇÃO</span><br />
-              <span className="text-orange-400">EM CAIXA REAL COM SEGURANÇA FINANCEIRA</span>
-            </h1>
+        {/* Main Content - Mobile: Title, Video, Buttons; Desktop: Same as before */}
+        <div className="max-w-6xl mx-auto lg:grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
+          {/* Left Column - Title and CTA*/}
+          <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-6 w-full">
+            {/* Title Section - First on both mobile and desktop */}
+            <div className="order-1">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight px-2 text-center lg:text-left">
+                MAIS QUE LUCRO: <span className="text-orange-400">TRANSFORME SUA OPERAÇÃO</span><br />
+                <span className="text-orange-400">EM CAIXA REAL COM SEGURANÇA FINANCEIRA</span>
+              </h1>
+              
+              <h2 className="text-lg md:text-xl text-gray-300 leading-relaxed px-2 text-center lg:text-left max-w-3xl mt-4 md:mt-6">
+                O Jogo Que os Grandes NEGÓCIOS Jogam Para Sempre Ter Caixa — E Que Nunca Ensinaram Para Pequenos Empresários
+              </h2>
+            </div>
             
-            <h2 className="text-lg md:text-xl text-gray-300 leading-relaxed px-2 text-center lg:text-left max-w-3xl">
-              O Jogo Que os Grandes NEGÓCIOS Jogam Para Sempre Ter Caixa — E Que Nunca Ensinaram Para Pequenos Empresários
-            </h2>
-
-            <div className="bg-red-600 text-white px-3 md:px-4 py-2 rounded-lg inline-block font-bold text-sm md:text-base mx-auto">
-              PARE DE VENDER MUITO E GANHAR POUCO!
+            {/* Red Box - After video on mobile, part of title on desktop */}
+            <div className="order-3 lg:order-1 mt-6 lg:mt-0 flex justify-center lg:justify-start">
+              <div className="bg-red-600 text-white px-3 md:px-4 py-2 rounded-lg inline-block font-bold text-sm md:text-base">
+                PARE DE VENDER MUITO E GANHAR POUCO!
+              </div>
             </div>
 
-            <Dialog open={isOpen} onOpenChange={setIsOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-sm sm:text-base md:text-sm font-bold rounded-lg leading-normal w-full max-w-xs sm:max-w-sm px-3 sm:px-4 md:min-w-[250px] md:px-8 md:py-[32px] animate-pulse">
-                  <span className="text-center whitespace-normal inline-block">
-                    SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA
-                  </span>
-                </Button>
-              </DialogTrigger>
-              
-              <DialogContent className="sm:max-w-md bg-slate-800 border-slate-700 mx-4">
-                <DialogHeader>
-                  <DialogTitle className="text-center text-white text-sm md:text-base">
-                    <span className="text-orange-400">Digite o seu e-mail</span> abaixo e participe do<br />
-                    <span className="text-orange-400">WEBINAR GRATUITO RECEITA GERENCIAL:</span>
-                  </DialogTitle>
-                </DialogHeader>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <Input name="name" placeholder="Digite seu nome... *" value={formData.name} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400" required />
-                  </div>
-                  
-                  <div>
-                    <Input name="email" type="email" placeholder="Seu melhor e-mail... *" value={formData.email} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400" required />
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-green-500 text-white px-2 py-1 text-xs rounded">
-                      🇧🇷 +55
-                    </div>
-                    <Input name="whatsapp" placeholder="Seu Whatsapp com DDD*" value={formData.whatsapp} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 pl-20" required />
-                  </div>
-                  
-                  <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 font-bold text-lg">
-                    SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
+            {/* CTA Section - Fourth on mobile (after video and red box), part of left column on desktop */}
+            <div className="flex flex-col items-center lg:items-start space-y-4 md:space-y-6 w-full mt-6 lg:mt-0 order-4 lg:order-3">
+              <Dialog open={isOpenTop} onOpenChange={setIsOpenTop}>
+                <DialogTrigger asChild>
+                  <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-sm sm:text-base md:text-sm font-bold rounded-lg leading-normal w-full max-w-xs sm:max-w-sm px-3 sm:px-4 md:min-w-[250px] md:px-8 md:py-[32px] animate-pulse">
+                    <span className="text-center whitespace-normal inline-block">
+                      SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA
+                    </span>
                   </Button>
-                  
-                  <p className="text-xs text-gray-400 text-center">
-                    * Importante: O endereço de e-mail informado deve ser válido para que você possa receber 
-                    todos os conteúdos da série gratuita. Os campos com "*" são obrigatórios para conclusão do 
-                    formulário.
-                  </p>
-                </form>
-              </DialogContent>
-            </Dialog>
-
-            <div className="flex items-center space-x-4">
-              <div className="flex -space-x-2">
-                {avatarImages.map((image, i) => <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white overflow-hidden">
-                    <img src={image} alt={`Avatar ${i + 1}`} className="w-full h-full object-cover" />
-                  </div>)}
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md bg-slate-800 border-slate-700 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[500px] p-4 sm:p-6 text-center">
+                  <DialogHeader className="mb-4">
+                    <DialogTitle className="text-center text-white text-xs sm:text-sm">
+                      <span className="text-orange-400">Digite o seu e-mail</span> abaixo e participe do<br />
+                      <span className="text-orange-400">WEBINAR GRATUITO IDEAL PLAN:</span>
+                    </DialogTitle>
+                  </DialogHeader>
+                  <form onSubmit={handleSubmit} className="space-y-3 max-w-sm mx-auto">
+                    <div>
+                      <Input name="name" placeholder="Digite seu nome... *" value={formData.name} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 h-9 sm:h-10 text-sm" required />
+                    </div>
+                    <div>
+                      <Input name="email" type="email" placeholder="Seu melhor e-mail... *" value={formData.email} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 h-9 sm:h-10 text-sm" required />
+                    </div>
+                    <div className="relative">
+                      <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-green-500 text-white px-2 py-1 text-xs rounded">
+                        🇧🇷 +55
+                      </div>
+                      <Input name="whatsapp" placeholder="Seu Whatsapp com DDD*" value={formData.whatsapp} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 pl-20 h-9 sm:h-10 text-sm" required />
+                    </div>
+                    <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 sm:py-3 font-bold text-xs sm:text-sm">
+                      SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
+                    </Button>
+                    <p className="text-[10px] sm:text-xs text-gray-400 text-center">
+                      * Importante: O endereço de e-mail informado deve ser válido para que você possa receber 
+                      todos os conteúdos da série gratuita. Os campos com "*" são obrigatórios para conclusão do 
+                      formulário.
+                    </p>
+                  </form>
+                </DialogContent>
+              </Dialog>
+              
+              <div className="mt-4 flex items-center justify-center lg:justify-start space-x-4">
+                <div className="flex -space-x-2">
+                  {avatarImages.map((image, i) => (
+                    <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white overflow-hidden">
+                      <img src={image} alt={`Avatar ${i + 1}`} className="w-full h-full object-cover" />
+                    </div>
+                  ))}
+                </div>
+                <span className="text-blue-400 font-semibold text-sm md:text-base">+2.000 Inscritos</span>
               </div>
-              <span className="text-blue-400 font-semibold text-sm md:text-base">+2.000 Inscritos</span>
             </div>
           </div>
 
-          {/* Right Column - YouTube Video */}
-          <div className="relative order-1 lg:order-2 mx-auto w-full max-w-md">
-            <div className="bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl p-4 md:p-8 text-center">
-              <div className="bg-black/20 rounded-xl p-3 md:p-6 mb-4">
-                <div className="aspect-video rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.youtube.com/embed/l96QD7MjH-8"
-                    title="Webinar Receita Gerencial"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
+          {/* Right Column - Video - Second on mobile, right column on desktop */}
+          <div className="w-full lg:mt-0 flex justify-center order-2 lg:order-none mt-6">
+            <div className="bg-orange-500 rounded-xl p-4 md:p-6 max-w-xl w-full">
+              <div className="aspect-video w-full rounded-lg overflow-hidden shadow-2xl">
+                <iframe 
+                  className="w-full h-full" 
+                  src="https://www.youtube.com/embed/l96QD7MjH-8" 
+                  title="COMO CRIAR CAIXA DE SEGURANÇA" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen>
+                </iframe>
               </div>
-              <div className="text-center">
-                <div className="text-orange-200 font-bold mb-2 text-sm md:text-base">WEBINAR 100% ONLINE E GRATUITO</div>
-                <div className="text-white font-bold text-sm md:text-base">DIA 23 DE JUNHO ÀS 20H</div>
+              <div className="text-center text-white font-bold mt-4 text-sm md:text-base">
+                WEBINAR 100% ONLINE E GRATUITO<br/>
+                DIA 23 DE JUNHO ÀS 20H
               </div>
             </div>
           </div>
@@ -304,7 +303,7 @@ const Evento = () => {
             🔥 VAGAS LIMITADAS | TRANSMISSÃO EXCLUSIVA
           </div>
           
-          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+          <Dialog open={isOpenBottom} onOpenChange={setIsOpenBottom}>
             <DialogTrigger asChild>
               <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-base sm:text-lg md:text-base font-bold rounded-lg leading-normal w-full max-w-sm sm:max-w-md px-4 sm:px-6 md:min-w-[280px] md:mx-0 md:px-10 md:py-[36px] animate-pulse">
                 <span className="text-center whitespace-normal inline-block">
@@ -312,19 +311,52 @@ const Evento = () => {
                 </span>
               </Button>
             </DialogTrigger>
+            <DialogContent className="sm:max-w-md bg-slate-800 border-slate-700 fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[500px] p-4 sm:p-6 text-center">
+              <DialogHeader className="mb-4">
+                <DialogTitle className="text-center text-white text-xs sm:text-sm">
+                  <span className="text-orange-400">Digite o seu e-mail</span> abaixo e participe do<br />
+                  <span className="text-orange-400">WEBINAR GRATUITO IDEAL PLAN:</span>
+                </DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-3 max-w-sm mx-auto">
+                <div>
+                  <Input name="name" placeholder="Digite seu nome... *" value={formData.name} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 h-9 sm:h-10 text-sm" required />
+                </div>
+                <div>
+                  <Input name="email" type="email" placeholder="Seu melhor e-mail... *" value={formData.email} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 h-9 sm:h-10 text-sm" required />
+                </div>
+                <div className="relative">
+                  <div className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-green-500 text-white px-2 py-1 text-xs rounded">
+                    🇧🇷 +55
+                  </div>
+                  <Input name="whatsapp" placeholder="Seu Whatsapp com DDD*" value={formData.whatsapp} onChange={handleInputChange} className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 pl-20 h-9 sm:h-10 text-sm" required />
+                </div>
+                <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 sm:py-3 font-bold text-xs sm:text-sm">
+                  SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
+                </Button>
+                <p className="text-[10px] sm:text-xs text-gray-400 text-center">
+                  * Importante: O endereço de e-mail informado deve ser válido para que você possa receber 
+                  todos os conteúdos da série gratuita. Os campos com "*" são obrigatórios para conclusão do 
+                  formulário.
+                </p>
+              </form>
+            </DialogContent>
           </Dialog>
 
           <div className="flex items-center justify-center space-x-4 mt-6 md:mt-8">
             <div className="flex -space-x-2">
-              {avatarImages.map((image, i) => <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white overflow-hidden">
+              {avatarImages.map((image, i) => (
+                <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white overflow-hidden">
                   <img src={image} alt={`Avatar ${i + 1}`} className="w-full h-full object-cover" />
-                </div>)}
+                </div>
+              ))}
             </div>
             <span className="text-blue-400 font-semibold text-sm md:text-base">+2.000 Inscritos</span>
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default Evento;
