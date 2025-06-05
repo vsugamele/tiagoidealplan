@@ -156,9 +156,9 @@ const Evento = () => {
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-sm sm:text-base md:text-base font-bold rounded-lg leading-normal w-full max-w-xs sm:max-w-sm px-3 sm:px-4 md:w-auto md:px-6 md:py-[32px] animate-pulse">
-                  <span className="text-center">
-                    SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
+                <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-sm sm:text-base md:text-sm font-bold rounded-lg leading-normal w-full max-w-xs sm:max-w-sm px-3 sm:px-4 md:min-w-[250px] md:px-8 md:py-[32px] animate-pulse">
+                  <span className="text-center whitespace-normal inline-block">
+                    SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA
                   </span>
                 </Button>
               </DialogTrigger>
@@ -306,9 +306,9 @@ const Evento = () => {
           
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-              <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-base sm:text-lg md:text-lg font-bold rounded-lg leading-normal w-full max-w-sm sm:max-w-md px-4 sm:px-6 md:w-auto md:mx-0 md:px-8 md:py-[36px] animate-pulse">
-                <span className="text-center">
-                  SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA →
+              <Button className="bg-orange-500 hover:bg-orange-600 text-white py-3 text-base sm:text-lg md:text-base font-bold rounded-lg leading-normal w-full max-w-sm sm:max-w-md px-4 sm:px-6 md:min-w-[280px] md:mx-0 md:px-10 md:py-[36px] animate-pulse">
+                <span className="text-center whitespace-normal inline-block">
+                  SIM! QUERO AUMENTAR O CAIXA DA MINHA EMPRESA
                 </span>
               </Button>
             </DialogTrigger>
