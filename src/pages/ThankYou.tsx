@@ -58,7 +58,7 @@ const ThankYou = () => {
           
           <div className="bg-white/80 backdrop-blur-sm p-6 md:p-10 rounded-2xl shadow-2xl border border-white/20 max-w-4xl mx-auto">
             <h2 className="text-xl md:text-3xl lg:text-4xl text-gray-700 mb-6 md:mb-8 font-medium leading-relaxed px-2">
-              Você deu o primeiro passo para transformar sua empresa em uma máquina de lucro.
+              Você deu o primeiro passo para transformar sua empresa em uma máquina de lucro e com caixa saudável..
             </h2>
             
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 md:p-8 rounded-2xl text-white shadow-xl">
@@ -67,7 +67,7 @@ const ThankYou = () => {
                 <h3 className="text-xl md:text-2xl font-bold text-center">WEBINAR GRATUITO</h3>
               </div>
               <h4 className="text-lg md:text-xl font-semibold mb-2 text-center leading-tight">
-                "COMO GERAR CAIXA FINANCEIRO<br className="md:hidden"/> NA SUA LOJA DE MATERIAIS"
+                "COMO GERAR CAIXA FINANCEIRO<br className="md:hidden"/> NA SUA EMPRESA"
               </h4>
               <p className="text-xl md:text-2xl font-bold mb-4 text-center">
                 Dia 23/06 às 20h
